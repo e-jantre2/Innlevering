@@ -55,7 +55,7 @@ void loop() {
   ArduinoCloud.update();
   // Your code here 
  temperature = dht.readTemperature();   // dht vil lesa temperatur ut på variabel temperature
-   if (mode == 0) {                     // om mode er satt til 0, (av) så går programmet videre til linja under
+   if (mode == 0) {                     // om mode er satt til 0, (av) så utfører programmet det som er inne i {} Om ikkje går programmet vidare
     fanRunning = false;                 // modus er satt til 0 (av) i mode, som betyr at vifte er av
     digitalWrite(blueLedPin, HIGH);     // LED er på 
     delay(100);                         // LED er på i 0,1 sekunder
@@ -63,7 +63,7 @@ void loop() {
     delay(2500);                        // LED er av i 2,5 sekunder
    }
   
-  if (mode == 1) {                      // om mode er satt til 1 (på), sså går programmet videre til linja under
+  if (mode == 1) {                      // om mode er satt til 1 (på), så utfører programmet det som er inne i {} Om ikkje går programmet vidare
     fanRunning = true;                  // modus er satt til 1 (på) i mode, som betyr at vite er på konstant
     digitalWrite(blueLedPin, HIGH);     // LED er konstant på
     //delay(1000);                      // kode klar til å sette forsinkelse 
@@ -71,14 +71,14 @@ void loop() {
     //delay(100);                       // kode klar til å sette forsinkelse
   }
   
-  if (mode == 2) {                      // om mode er satt til 2 (auto), så går programmet videre til linja under
-    if (temperature > treshold){        // om temperatur er meir enn det som er satt som treshold, så går programmet videre til linja under
+  if (mode == 2) {                      // om mode er satt til 2 (auto), så utfører programmet det som er inne i {}
+    if (temperature > treshold){        // om temperatur er meir enn det som er satt som treshold, så utføra programmet det som er inne i {}, elles så hoppar programmet til else kommandoen
       fanRunning = true;                // definer at vifte er på om verdi er over treshold 
       digitalWrite(blueLedPin, HIGH);   // LED er på 
       delay(500);                       // LED er på i 0,5 sekunder
       digitalWrite(blueLedPin, LOW);    // LED er av
       delay(500);                       // LED er av i 0,5 sekunder
-    } else {                            // om temperaturen er mindre enn det som er satt som treshold, så går programmet videre til linja under
+    } else {                            // om temperaturen er mindre enn det som er satt som treshold, så utfører programmet det som står i {}
       fanRunning = false;               // definer at vifte er av om verdi er lavere enn treshold 
       digitalWrite(blueLedPin, HIGH);   // LED er på 
       delay(100);                       // LED er på i 0,1 sekunder
